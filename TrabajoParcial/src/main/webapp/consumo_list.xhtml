@@ -1,0 +1,97 @@
+<ui:composition template="master.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+        .:Listado de Consumos:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Listado de Consumos </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+
+				<div class="col-sm-4 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height: 30px;"></span>
+						<p:commandButton value="Limpiar" update="listConsumos"
+							actionListener="#{consumoController.clearConsumo()}"
+							styleClass="btn btn-default" ajax="false" />
+
+						<p:commandButton value="Nuevo" action="#{consumoController.newConsumo()}"
+							styleClass="btn btn-primary" ajax="false" />
+
+					</div>
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+
+						<p:dataTable id="lstConsumo" var="consumo"
+							value="#{consumoController.listConsumos}"
+							paginator="true"
+							paginatorPosition="top" 
+
+							styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Item" style="width:40px;text-align:center">
+								<h:outputText value="#{item + 1}" />
+							</p:column>
+
+							<p:column headerText="Id">
+								<h:outputText value="#{consumo.id}" />
+							</p:column>
+							
+							<p:column headerText="Fecha">
+								<h:outputText value="#{consumo.fechaconsumo}" />
+							</p:column>	
+							
+							<p:column headerText="Cliente">
+								<h:outputText value="#{consumo.cliente.name}" />
+							</p:column>
+							
+							<p:column headerText="Vehiculo">
+								<h:outputText value="#{consumo.vehiculo.matricula}" />
+							</p:column>	
+							
+							<p:column headerText="Combustible">
+								<h:outputText value="#{consumo.tipocombustible.name}" />
+							</p:column>
+							
+							<p:column headerText="Cantidad">
+								<h:outputText value="#{consumo.cantidad}" />
+							</p:column>
+							
+							<p:column headerText="Tasa Descuento">
+								<h:outputText value="#{consumo.descuento}" />
+							</p:column>
+							
+							<p:column headerText="Pago">
+								<h:outputText value="#{consumoController.calculaMonto(consumo)}" />
+							</p:column>							
+							
+						</p:dataTable>
+					</div>
+
+				</div>
+			</div>
+	
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+		
+	</ui:define>
+</ui:composition>

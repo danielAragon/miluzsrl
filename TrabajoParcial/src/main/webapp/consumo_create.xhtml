@@ -1,0 +1,158 @@
+<ui:composition template="master.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+        .:Registro de Consumo:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Registro de Consumo</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<p:outputLabel for="cboOperador" value="Operador" />
+
+						<p:selectOneMenu id="cboOperador"
+							value="#{consumoController.consumo.operador}"
+							converter="omnifaces.SelectItemsConverter">
+
+							<f:selectItems value="#{operadorController.listOperadores}"
+								var="o" itemLabel="#{o.name}" itemValue="#{o}" />
+						</p:selectOneMenu>
+
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<p:outputLabel for="cboTipoCombustible" value="TipoCombustible" />
+
+						<p:selectOneMenu id="cboTipoCombustible"
+							value="#{consumoController.consumo.tipocombustible}"
+							converter="omnifaces.SelectItemsConverter">
+
+							<f:selectItems
+								value="#{tipoCombustibleController.listTipoCombustibles}"
+								var="tc" itemLabel="#{tc.name}" itemValue="#{tc}" />
+						</p:selectOneMenu>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<p:outputLabel for="cboCliente" value="Cliente" />
+
+						<p:selectOneMenu id="cboCliente"
+							value="#{consumoController.consumo.cliente}"
+							converter="omnifaces.SelectItemsConverter">
+
+							<f:selectItems value="#{clienteController.listClientes}" var="c"
+								itemLabel="#{c.ci}" itemValue="#{c}" />
+						</p:selectOneMenu>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<p:outputLabel for="cboVehiculo" value="Vehiculo" />
+
+						<p:selectOneMenu id="cboVehiculo"
+							value="#{consumoController.consumo.vehiculo}"
+							converter="omnifaces.SelectItemsConverter">
+
+							<f:selectItems value="#{vehiculoController.listVehiculos}"
+								var="v" itemLabel="#{v.matricula}" itemValue="#{v}" />
+						</p:selectOneMenu>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="cantidad" value="Cantidad:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="cantidad"
+							styleClass="form-control"
+							value="#{consumoController.consumo.cantidad}" required="true"
+							maxlength="120" label="Cantidad:" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="fechaConsumo" value="Fecha de Consumo:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="fechaconsumo"
+							styleClass="form-control"
+							value="#{consumoController.consumo.fechaconsumo}" required="true"
+							maxlength="120" label="Fecha Consumo:" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="horaConsumo" value="Hora de Consumo:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="horaconsumo"
+							styleClass="form-control"
+							value="#{consumoController.consumo.horaconsumo}" required="true"
+							maxlength="120" label="Hora de Consumo:" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="descuento" value="Descuento:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="descuento"
+							styleClass="form-control"
+							value="#{consumoController.consumo.descuento}" required="true"
+							maxlength="120" label="Descuento:" />
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-2 text-right">
+					<div class="form-group box-main-btn">
+
+						<p:commandButton value="Grabar"
+							actionListener="#{consumoController.createConsumo()}"
+							styleClass="btn btn-primary " update="@form"
+							action="consumo_list.xhtml" />
+						<p:commandButton value="Cancelar" action="consumo_list.xhtml"
+							immediate="true" styleClass="btn btn-default" ajax="false" />
+
+					</div>
+				</div>
+			</div>
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>

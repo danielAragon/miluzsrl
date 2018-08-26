@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+</head>
+<body>
+	<nav id="navbar-example2"
+		class="navbar-expand-md navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">RasBus</a>
+		<ul class="nav nav-pills">
+			<li class="nav-item"><a class="nav-link" href="#mdo"
+				th:href="@{/buses}">Buses</a></li>
+		</ul>
+		<ul class="nav nav-pills">
+			<li class="nav-item"><a class="nav-link" href="#mdo"
+				th:href="@{/rutas}">Rutas</a></li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<h1 th:text="${titulo}"></h1>
+		<div class="form-group">
+			<a class="btn btn-primary" th:href="@{/rutaAddEdit}">Crear Ruta</a>
+		</div>
+		<table class="table">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Ruta</th>
+					<th scope="col">action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ruta: ${rutas}">
+					<td th:text="${ruta.Ruta_ID}"></td>
+					<td th:text="${ruta.Nombre}"></td>
+					<td>
+                        <a th:href="@{/rutaAddEdit/__${ruta.Ruta_ID}__}">Edit</a>
+                    </td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+</body>
+</html>

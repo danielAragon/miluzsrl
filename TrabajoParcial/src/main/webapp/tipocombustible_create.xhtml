@@ -1,0 +1,89 @@
+<ui:composition template="master.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+        .:Registro de Tipo de Combustible:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Registro de Tipo de Combustible </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="name" value="Name:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="name"
+							styleClass="form-control"
+							value="#{tipoCombustibleController.tipocombustible.name}" required="true"
+							maxlength="120" label="name" />
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="precioventa" value="Precio Venta:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="precioventa"
+							styleClass="form-control"
+							value="#{tipoCombustibleController.tipocombustible.precioventa}" required="true"
+							maxlength="120" label="precioventa" />
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="preciocompra" value="Precio Compra:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="preciocompra"
+							styleClass="form-control"
+							value="#{tipoCombustibleController.tipocombustible.preciocompra}" required="true"
+							maxlength="120" label="preciocompra" />
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-sm-2 text-right">
+					<div class="form-group box-main-btn">
+
+						<p:commandButton value="Grabar"
+							actionListener="#{tipoCombustibleController.createTipoCombustible()}"
+							styleClass="btn btn-primary " update="@form"
+							action="tipocombustible_list?faces-redirect=true" />
+							
+						<p:commandButton value="Cancelar"
+							action="tipocombustible_list?faces-redirect=true" immediate="true"
+							styleClass="btn btn-default" ajax="false" />
+
+					</div>
+				</div>
+			</div>
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>

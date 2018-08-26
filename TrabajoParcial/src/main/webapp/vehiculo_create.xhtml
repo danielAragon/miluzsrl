@@ -1,0 +1,79 @@
+<ui:composition template="master.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+        .:Registro de Vehiculo:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Registro de Vehiculo </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="form-group">
+					
+						<h:outputLabel for="matricula" value="Matricula:"
+							styleClass="control-label" />
+							
+						<p:inputText autocomplete="off" id="matricula"
+							styleClass="form-control"
+							value="#{vehiculoController.vehiculo.matricula}" required="true"
+							maxlength="120" label="matricula" />
+							
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="form-group">
+					
+						<h:outputLabel for="name" value="Name:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="name"
+							styleClass="form-control"
+							value="#{vehiculoController.vehiculo.name}" required="true"
+							maxlength="120" label="name" />
+							
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-sm-2 text-right">
+					<div class="form-group box-main-btn">
+
+						<p:commandButton value="Grabar"
+							actionListener="#{vehiculoController.createVehiculo()}"
+							styleClass="btn btn-primary " update="@form"
+							action="vehiculo_list?faces-redirect=true" />
+						<p:commandButton value="Cancelar"
+							action="vehiculo_list?faces-redirect=true" immediate="true"
+							styleClass="btn btn-default" ajax="false" />
+
+
+
+					</div>
+				</div>
+			</div>
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>

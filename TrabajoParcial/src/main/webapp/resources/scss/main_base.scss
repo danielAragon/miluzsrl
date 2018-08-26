@@ -1,0 +1,213 @@
+$title: 'Ubuntu Condensed', sans-serif;
+$texto: 'Roboto', sans-serif;
+
+$base_primary:#1F1E23;
+$base_color:#EB2C3B;
+$base_fondo:#D9D9D9;
+
+body {
+ padding-top:50px;
+ font-family: $texto;
+ background: $base_fondo;
+}
+
+.base_primary{
+  background: $base_primary;
+}
+.base_fondo_fff{
+  background: #fff;
+}
+.title-style{
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  span{
+    font-family: $title;
+    border-bottom:3px solid $base_color;
+  }
+}
+.control-label{
+  font-weight: 400;
+}
+
+#masthead {
+ min-height:250px;
+}
+
+#masthead h1 {
+ font-size: 30px;
+ line-height: 1;
+ padding-top:20px;
+}
+
+#masthead .well {
+ margin-top:8%;
+}
+
+@media screen and (min-width: 768px) {
+  #masthead h1 {
+    font-size: 50px;
+  }
+}
+
+.navbar-bright {
+ background-color:#111155;
+ color:#fff;
+}
+
+.affix-top,.affix{
+ position: static;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top:30px;
+
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    top:70px;
+
+  }
+}
+
+#sidebar li.active {
+  border:0 #eee solid;
+  border-right-width:5px;
+}
+
+#sidebar li a{
+  color:$base_primary;
+}
+
+#sidebar li a i{
+  margin-right: 10px;
+}
+.navbar-default .navbar-nav>li>a {
+    padding-top: 19px;
+    padding-bottom: 20px;  
+}
+.box-table-class{
+    .ui-paginator-top, .ui-paginator-bottom{
+    line-height: 18px;
+    border-radius: 0;
+    }
+	.table-bordered{
+	border:0;
+	}
+	.verIcoFont{
+	    text-indent: 0!important;
+	    top: 60%!important;
+	    font-size: 13px;
+	    background-image: none!important;
+	}
+    
+    .ui-paginator-bottom{
+    border-top: 1px solid #D7D7D7 !important;
+    }
+    thead{
+
+        .ui-column-title{
+            font-size: 12px;
+            text-shadow: none;
+            text-rendering: optimizeLegibility;
+        }
+    }
+
+    .ui-widget-header{
+        background:#fff;
+        border:0;
+        .ui-state-default{
+            background:#efefef;
+            box-shadow: none;
+            border-radius: 0;
+            font-weight: 400;
+        }
+    }
+    .ui-datatable{
+        font-size: 12px;
+
+        thead th, tbody td, tfoot td{
+            padding:5px;
+            border-radius: 0;
+            text-shadow: none;
+            box-shadow: none;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        thead {
+            th{
+            // padding:0;
+            }
+        }
+
+        tbody{
+            button{
+               box-shadow: none;
+               border-radius: 0; 
+            }
+        }
+    }
+}
+.box-main-btn{
+    height: 35px;
+	.btn-primary {
+		border-radius:2px;
+	    border-color:rgba(0, 0, 0, 0.2)!important;
+	    color:#fff;
+	    &:hover, .btn-primary:focus {
+		    border-color:rgba(0, 0, 0, 0.2)!important;
+		}
+	}
+	.ui-widget-content{
+		background: transparent !important;
+		color: rgb(255, 255, 255)!important;
+	 }    
+    button{
+        padding: 0;
+        margin-left:10px !important;
+        height: 29px;
+        .ui-button-icon-left{
+            background: #ddd;
+            height: 29px;
+            width: 25px;
+            margin: 0!important;
+            padding: 0px !important;
+            right: 0!important;
+            left: inherit;
+            top:0;
+            color:#fff;
+            border-radius: 0;
+            &[class*=" icon-"]::before{
+            padding-top: 7px;
+            }
+            &[class*=" fa-"]::before{
+                margin-top: 8px;
+                display: block;
+            }
+            &[class*=" glyphicon-"]::before{
+                top: 8px;
+                position: relative;
+            }            
+        }
+
+    }
+    .btn-buscar{
+        .ui-button-icon-left{
+            background:transparent;
+            color:#1A171B;
+        }
+    }
+     a{
+        padding: 4px 20px;
+        margin-right:0.2em;
+    }
+}
+
+.ocultarImgIcon{
+    background-position: 0 10px;
+    text-indent: 0 !important;
+    margin-top: -7px !important;
+}

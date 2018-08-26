@@ -1,0 +1,167 @@
+<ui:composition template="master.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">
+        .:Registro de Operador:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Registro de Operador </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="nombre" value="Nombre:"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="nombre"
+							styleClass="form-control"
+							value="#{operadorController.operador.name}" required="true"
+							maxlength="120" label="nombre" />
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="ci" value="CI" styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="ci" styleClass="form-control"
+							value="#{operadorController.operador.ci}" required="true"
+							maxlength="120" label="Carnet de Identidad" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<p:outputLabel for="cboGrifo" value="Grifo      " />
+
+						<p:selectOneMenu id="cboGrifo"
+							value="#{operadorController.operador.grifo}"
+							converter="omnifaces.SelectItemsConverter">
+
+							<f:selectItems value="#{grifoController.listGrifos}" var="g"
+								itemLabel="#{g.name}" itemValue="#{o}" />
+						</p:selectOneMenu>
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="telefono" value="Telefono"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="telefono"
+							styleClass="form-control"
+							value="#{operadorController.operador.telefono}" required="true"
+							maxlength="120" label="telefono" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="direccion" value="Direccion"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="direccion"
+							styleClass="form-control"
+							value="#{operadorController.operador.direccion}" required="true"
+							maxlength="120" label="Direccion" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="hraIngreso" value="HraIngreso"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="horaingreso"
+							styleClass="form-control"
+							value="#{operadorController.operador.horaingreso}"
+							required="true" maxlength="120" label="Hora de Ingreso" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="hraSalida" value="HraSalida"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="horasalida"
+							styleClass="form-control"
+							value="#{operadorController.operador.horasalida}" required="true"
+							maxlength="120" label="Hora de Salida" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="nplataforma" value="NroPlataforma"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="numplataforma"
+							styleClass="form-control"
+							value="#{operadorController.operador.numplataforma}"
+							required="true" maxlength="120" label="Numero de Plataforma" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="comision" value="Comision"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="comision"
+							styleClass="form-control"
+							value="#{operadorController.operador.comision}" required="true"
+							maxlength="120" label="Comision" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-2 text-right">
+					<div class="form-group box-main-btn">
+
+						<p:commandButton value="Grabar"
+							actionListener="#{operadorController.createOperador()}"
+							styleClass="btn btn-primary " update="@form"
+							action="operador_list.xhtml" />
+						<p:commandButton value="Cancelar" action="operador_list.xhtml"
+							immediate="true" styleClass="btn btn-default" ajax="false" />
+
+					</div>
+				</div>
+			</div>
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
