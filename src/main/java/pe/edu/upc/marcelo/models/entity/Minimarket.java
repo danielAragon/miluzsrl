@@ -21,7 +21,7 @@ import pe.edu.upc.marcelo.models.entity.Producto;
 @Table(name="minimarkets")
 public class Minimarket implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+	//id comentario
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
